@@ -3,27 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   ft_list.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wmonacho <wmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: will <will@student.42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 15:31:53 by wmonacho          #+#    #+#             */
-/*   Updated: 2022/01/11 13:38:29 by wmonacho         ###   ########lyon.fr   */
+/*   Updated: 2022/01/18 18:06:46 by will             ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
 
-t_list	*ft_list_a(int argc, int *tab)
+t_list	*ft_list_a(int argc, char **tab)
 {
-	int		*buffer;
+	int		*tmp;
 	int		i;
 	t_list	*tab_a;
 
 	i = 0;
-	tab_a->content = NULL;
+	tmp = (int *)malloc(sizeof(int));
+	if (!tmp)
+		return (NULL);
 	while (i < argc - 1)
 	{
-		*buffer = tab[i];
-		ft_lstadd_back(&tab_a, ft_lstnew(buffer));
+		*tmp = *tab[i];
+		ft_lstadd_back(&tab_a, ft_lstnew((void*)tmp));
 		if (!tab_a)
 			return (NULL);
 		i++;

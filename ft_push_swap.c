@@ -3,26 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   ft_push_swap.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wmonacho <wmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: will <will@student.42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 12:05:08 by wmonacho          #+#    #+#             */
-/*   Updated: 2022/01/11 13:38:56 by wmonacho         ###   ########lyon.fr   */
+/*   Updated: 2022/01/18 18:09:45 by will             ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
 
-int	main(int argc, char *argv[])
+int	main(int argc, char **argv)
 {
-	int		*tab_a;
-	int		*tab_b;
+	t_list		*tab_a;
+	t_list		*tab_b;
 
-	if (ft_check(argc, argv) == -1)
+	if (ft_check(argc, (char **)argv) == -1)
 		return (0);
 	ft_index(argc, argv);
 	tab_a = ft_list_a(argc, argv);
 	tab_b = ft_list_b();
-	ft_setradix(&tab_a, &tab_b);
+	ft_setradix(&tab_a, &tab_b, argc);
 	return (0);
 }
 

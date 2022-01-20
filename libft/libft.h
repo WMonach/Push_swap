@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wmonacho <wmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: will <will@student.42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 15:16:32 by wmonacho          #+#    #+#             */
-/*   Updated: 2021/12/27 11:29:24 by wmonacho         ###   ########lyon.fr   */
+/*   Updated: 2022/01/14 12:25:30 by will             ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int			ft_strncmp(const char *s1, const char *s2, unsigned int n);
 int			ft_tolower( int c);
 int			ft_toupper(int c);
 int			ft_lstsize(t_list *lst);
-int			ft_putnbr_basediu(long nbr, char *base_to);
+char			*ft_putnbr_basediu(long nbr, char *base_to);
 
 char		*ft_itoa( int n);
 char		*ft_strjoin(char const *s1, char const *s2);
@@ -62,8 +62,9 @@ char		*ft_strrchr(const char *str, int c);
 char		*ft_strtrim(char const *s1, char const *set);
 char		*ft_substr( char const *s, unsigned int start, size_t len);
 
-size_t		ft_strlcat(char *dest, const char *src, unsigned int size);
-size_t		ft_strlcpy(char *dest, const char *src, unsigned int size);
+unsigned int		ft_strlcat(char *dest, const char *src, unsigned int size);
+unsigned int		ft_strlcpy(char *dest, const char *src, unsigned int size);
+
 size_t		ft_strlen(const char *string);
 t_list		*ft_lstnew(void *content);
 t_list		*ft_lstlast(t_list *lst);

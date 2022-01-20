@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wmonacho <wmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: will <will@student.42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/26 12:23:55 by wmonacho          #+#    #+#             */
-/*   Updated: 2021/11/18 10:27:33 by wmonacho         ###   ########lyon.fr   */
+/*   Updated: 2022/01/14 12:22:12 by will             ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,10 +103,8 @@ static char	**ft_get_filling(char const *str, char charset, char	**tab)
 char	**ft_split(char const *str, char c)
 {
 	char	**tab;
-	int		i;
 	int		nbrw;
 
-	i = 0;
 	if (!str)
 		return (NULL);
 	nbrw = ft_nbr_words(str, c);

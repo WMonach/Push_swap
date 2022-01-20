@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_basediu.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wmonacho <wmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: will <will@student.42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 14:11:08 by wmonacho          #+#    #+#             */
-/*   Updated: 2021/12/27 11:31:34 by wmonacho         ###   ########lyon.fr   */
+/*   Updated: 2022/01/14 12:25:48 by will             ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static char	*ft_taille(long nbr, int blen, int *i)
 	return (ptr);
 }
 
-char	ft_putnbr_basediu(long nbr, char *base_to)
+char	*ft_putnbr_basediu(long nbr, char *base_to)
 {
 	char	*ptr;
 	int		i;
@@ -49,7 +49,7 @@ char	ft_putnbr_basediu(long nbr, char *base_to)
 	if (!ptr)
 	{
 		free(ptr);
-		return (-1);
+		return (NULL);
 	}
 	j = i;
 	if (nbr < 0)

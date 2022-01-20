@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wmonacho <wmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: will <will@student.42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/22 17:31:04 by wmonacho          #+#    #+#             */
-/*   Updated: 2022/01/11 13:40:11 by wmonacho         ###   ########lyon.fr   */
+/*   Updated: 2022/01/18 14:55:17 by will             ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	ft_check_int(int argc, char *argv[])
 		j = 0;
 		while (argv[i][j] != '\0')
 		{
-			if (argv[j] < '0' || argv[j++] > '9')
+			if ((argv[j][i]) < 0 || (argv[j++][i]) > 9)
 				return (-1);
 		}
 		i++;
@@ -68,7 +68,7 @@ int	ft_check_duplicate(int argc, char *argv[])
 		j = i + 1;
 		while (j < argc - 1)
 		{
-			numberone = ft(argv[j]);
+			numberone = ft_atoi(argv[j]);
 			if (numberone == number)
 				return (-1);
 			j++;

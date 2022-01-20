@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_radix.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wmonacho <wmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: will <will@student.42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/30 12:35:37 by wmonacho          #+#    #+#             */
-/*   Updated: 2022/01/11 14:23:52 by wmonacho         ###   ########lyon.fr   */
+/*   Updated: 2022/01/18 18:24:54 by will             ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
 
-static int	returnrotate(int **tab_a, int count, int size)
+static int	ft_returnrotate(t_list **tab_a, int count, int size)
 {
 	int	i;
 
@@ -22,20 +22,20 @@ static int	returnrotate(int **tab_a, int count, int size)
 	return (0);
 }
 
-static int	return_reverserotate(int **tab_a, int count)
+static int	ft_return_reverserotate(t_list **tab_a, int count)
 {
 	int	i;
 
 	i = count - 1;
 	while (i > 0)
 	{
-		ft_reverse_rotate_a(tab_a);
+		ft_reverserotate_a(tab_a);
 		i--;
 	}
 	return (0);
 }
 
-static int	ft_severalrotate(int **tab_a, int count, int size)
+static int	ft_severalrotate(t_list **tab_a, int count, int size)
 {
 	int	i;
 
