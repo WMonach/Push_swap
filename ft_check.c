@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: will <will@student.42lyon.fr>              +#+  +:+       +#+        */
+/*   By: wmonacho <wmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/22 17:31:04 by wmonacho          #+#    #+#             */
-/*   Updated: 2022/01/18 14:55:17 by will             ###   ########lyon.fr   */
+/*   Updated: 2022/01/21 16:02:59 by wmonacho         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ int	ft_check_duplicate(int argc, char *argv[])
 
 int	ft_check(int argc, char *argv[])
 {
-	if (argc < 1)
+	if (argc < 2)
 		return (ft_error());
 	if (ft_check_int(argc, argv) == -1)
 		return (ft_error());

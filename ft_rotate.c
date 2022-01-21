@@ -6,7 +6,7 @@
 /*   By: wmonacho <wmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/29 11:14:35 by wmonacho          #+#    #+#             */
-/*   Updated: 2022/01/11 13:40:42 by wmonacho         ###   ########lyon.fr   */
+/*   Updated: 2022/01/21 15:34:52 by wmonacho         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	ft_rotate_a(t_list **tab_a)
 	return (0);
 }
 
-void	ft_rotate_b(t_list **tab_b)
+int	ft_rotate_b(t_list **tab_b)
 {
 	t_list	*tmp;
 	t_list	*tempi;

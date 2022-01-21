@@ -1,12 +1,12 @@
-NAME =		push_swap.a
+NAME =		push_swap
 
 CFLAGS =	-Wall -Werror -Wextra
 
-GCC =		gcc -o
+GCC =		gcc
 
 MAKE =		make
 
-LIBSDIR =	./libft
+LIBSDIR =	./libft/
 
 FILES =	ft_check.c            \
 		ft_index.c            \
@@ -20,23 +20,25 @@ FILES =	ft_check.c            \
 
 OBJ = ${FILES:.c=.o}
 
+all :	libs ${NAME}
+
 libs :
 		${MAKE} -C ${LIBSDIR}
 
-all :	${NAME}
-
-push_swap.a : 	${OBJ}
-				ar rc ${NAME} ${OBJ}
+${NAME} : 	${OBJ} ${LIBSDIR}libft.a
+				${GCC} ${FLAGS} -L${LIBSDIR} -lft ${OBJ} -o push_swap
 
 %.o:			%.c push_swap.h
-				$(GCC) $(CFLAGS) -c $< -o $@ push_swap
+				$(GCC) $(CFLAGS) -c $< -o $@
 
 clean :
-				rm -f ${OBJ} ${OBJ_B}
+				rm -f ${OBJ} ${OBJ_B} 
+				rm -f ${LIBSDIR}*.c
 
 fclean :		clean
 				rm -f ${NAME}
+				rm -f ${LIBSDIR}
 
 re :			fclean all
 
-.PHONY:			all clean fclean bonus push_swap.a .c.o re
+.PHONY:			all clean fclean bonus libs re

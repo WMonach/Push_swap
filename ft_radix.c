@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_radix.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: will <will@student.42lyon.fr>              +#+  +:+       +#+        */
+/*   By: wmonacho <wmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/30 12:35:37 by wmonacho          #+#    #+#             */
-/*   Updated: 2022/01/18 18:24:54 by will             ###   ########lyon.fr   */
+/*   Updated: 2022/01/21 15:33:53 by wmonacho         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ static int	ft_severalrotate(t_list **tab_a, int count, int size)
 		ft_returnrotate(tab_a, count, size);
 	else
 		ft_return_reverserotate(tab_a, count);
+	return (1);
 }
 
 static int	ft_triradix(t_list **tab_a, t_list **tab_b, int j, int size)
@@ -70,7 +71,7 @@ static int	ft_triradix(t_list **tab_a, t_list **tab_b, int j, int size)
 			count--;
 			if (count > 0)
 				ft_severalrotate(tab_a, count, size);
-			ft_push_a(&tab_a, tab_b);
+			ft_push_a(tab_a, tab_b);
 		}
 		*tab_a = (*tab_a)->next;
 	}
@@ -92,7 +93,7 @@ int	ft_setradix(t_list **tab_a, t_list **tab_b, int argc)
 	while (i > 0)
 	{
 		tmp = *tab_a;
-		tab_a = ft_triradix(&tmp, tab_b, size - i, size);
+		ft_triradix(&tmp, tab_b, size - i, size);
 		i--;
 	}
 	return (0);

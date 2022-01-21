@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: will <will@student.42lyon.fr>              +#+  +:+       +#+        */
+/*   By: wmonacho <wmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 15:16:32 by wmonacho          #+#    #+#             */
-/*   Updated: 2022/01/14 12:25:30 by will             ###   ########lyon.fr   */
+/*   Updated: 2022/01/21 16:18:50 by wmonacho         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int			ft_strncmp(const char *s1, const char *s2, unsigned int n);
 int			ft_tolower( int c);
 int			ft_toupper(int c);
 int			ft_lstsize(t_list *lst);
-char			*ft_putnbr_basediu(long nbr, char *base_to);
+char		*ft_putnbr_basediu(long nbr, char *base_to);
 
 char		*ft_itoa( int n);
 char		*ft_strjoin(char const *s1, char const *s2);
