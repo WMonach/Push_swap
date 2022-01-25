@@ -6,7 +6,7 @@
 /*   By: wmonacho <wmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/22 17:31:04 by wmonacho          #+#    #+#             */
-/*   Updated: 2022/01/21 16:02:59 by wmonacho         ###   ########lyon.fr   */
+/*   Updated: 2022/01/25 09:22:01 by wmonacho         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,13 @@ int	ft_check_int(int argc, char *argv[])
 	int	i;
 	int	j;
 
-	i = 0;
-	while (i < argc - 1)
+	i = 1;
+	while (i < argc)
 	{
 		j = 0;
 		while (argv[i][j] != '\0')
 		{
-			if ((argv[j][i]) < 0 || (argv[j++][i]) > 9)
+			if ((argv[i][j]) < '0' || (argv[i][j++]) > '9')
 				return (-1);
 		}
 		i++;

@@ -6,7 +6,7 @@
 /*   By: wmonacho <wmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 15:16:32 by wmonacho          #+#    #+#             */
-/*   Updated: 2022/01/21 16:18:50 by wmonacho         ###   ########lyon.fr   */
+/*   Updated: 2022/01/25 11:23:29 by wmonacho         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define LIBFT_H
 
 # include <stdlib.h>
+# include <stdio.h>
 
 typedef struct s_list
 {

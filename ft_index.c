@@ -3,32 +3,33 @@
 /*                                                        :::      ::::::::   */
 /*   ft_index.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: will <will@student.42lyon.fr>              +#+  +:+       +#+        */
+/*   By: wmonacho <wmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 12:29:16 by wmonacho          #+#    #+#             */
-/*   Updated: 2022/01/18 18:07:07 by will             ###   ########lyon.fr   */
+/*   Updated: 2022/01/25 11:18:37 by wmonacho         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
 
-void	ft_count(int **tab, int **temp, int argc)
+void	ft_count(int **tab, int *temp, int argc)
 {
 	int	i;
 	int	count;
 	int	j;
 
 	i = 0;
-	while (i < argc - 1)
+	while (i < argc)
 	{
 		count = 0;
 		j = 0;
-		while (j < argc - 1)
+		while (j < argc)
 		{
-			if (temp[i] > temp[j++])
+			if (temp[i] > temp[j])
 				count++;
+			j++;
 		}
-		*tab[i] = count;
+		tab[0][i] = count;
 		i++;
 	}
 }
@@ -38,8 +39,9 @@ int	*ft_index(int argc, char **argv)
 	int	*tab;
 	int	*temp;
 	int	i;
+	int	j;
 
-	i = 0;
+	i = 1;
 	tab = (int *)malloc(sizeof(int) * argc - 1);
 	temp = (int *)malloc(sizeof(int) * argc - 1);
 	if (!tab || !temp)
@@ -48,12 +50,14 @@ int	*ft_index(int argc, char **argv)
 		free (temp);
 		return (NULL);
 	}
-	while (i < argc - 1)
+	j = 0;
+	while (i < argc)
 	{
-		temp[i] = ft_atoi(argv[i]);
+		temp[j] = ft_atoi(argv[i]);
 		i++;
+		j++;
 	}
-	ft_count(&tab, &temp, argc);
+	ft_count(&tab, temp, argc);
 	free(temp);
 	return (tab);
 }

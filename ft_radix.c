@@ -6,7 +6,7 @@
 /*   By: wmonacho <wmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/30 12:35:37 by wmonacho          #+#    #+#             */
-/*   Updated: 2022/01/21 15:33:53 by wmonacho         ###   ########lyon.fr   */
+/*   Updated: 2022/01/25 15:45:53 by wmonacho         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,16 +65,22 @@ static int	ft_triradix(t_list **tab_a, t_list **tab_b, int j, int size)
 	count = 0;
 	while ((*tab_a)->next != NULL)
 	{
+		printf("HW=%d\n", 6);
 		count++;
 		if ((1 & ((int)(*tab_a)->content) >> j) == 0)
 		{
 			count--;
+			printf("HW=%d\n", 2);
 			if (count > 0)
 				ft_severalrotate(tab_a, count, size);
+			printf("HW=%d\n", 1);
 			ft_push_a(tab_a, tab_b);
 		}
+		printf("HW=%d\n", 4);
 		*tab_a = (*tab_a)->next;
+		printf("HW=%d\n", 5);
 	}
+	printf("END");
 	while ((*tab_b)->next != NULL)
 		ft_push_b(tab_a, tab_b);
 	return (0);

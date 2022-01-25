@@ -32,12 +32,13 @@ ${NAME} : 	${OBJ} ${LIBSDIR}libft.a
 				$(GCC) $(CFLAGS) -c $< -o $@
 
 clean :
+				${MAKE} clean -C ${LIBSDIR}
 				rm -f ${OBJ} ${OBJ_B} 
-				rm -f ${LIBSDIR}*.c
 
-fclean :		clean
+fclean :
+				${MAKE} fclean -C ${LIBSDIR}
+				rm -f ${OBJ} ${OBJ_B} 
 				rm -f ${NAME}
-				rm -f ${LIBSDIR}
 
 re :			fclean all
 
