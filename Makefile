@@ -1,12 +1,12 @@
 NAME =		push_swap
 
-CFLAGS =	-Wall -Werror -Wextra
+CFLAGS =	-Wall -Werror -Wextra -g3 -fsanitize=address
 
-GCC =		gcc
+CC =		gcc
 
 MAKE =		make
 
-LIBSDIR =	./libft/
+LIBSDIR =	libft/
 
 FILES =	ft_check.c            \
 		ft_index.c            \
@@ -17,6 +17,7 @@ FILES =	ft_check.c            \
 		ft_reverse_rotate.c   \
 		ft_rotate.c           \
 		ft_swap.c             \
+		debug.c
 
 OBJ = ${FILES:.c=.o}
 
@@ -26,10 +27,10 @@ libs :
 		${MAKE} -C ${LIBSDIR}
 
 ${NAME} : 	${OBJ} ${LIBSDIR}libft.a
-				${GCC} ${FLAGS} -L${LIBSDIR} -lft ${OBJ} -o push_swap
+				${CC} ${CFLAGS} -Llibft/ ${OBJ} -o push_swap -lft
 
-%.o:			%.c push_swap.h
-				$(GCC) $(CFLAGS) -c $< -o $@
+%.o:			%.c
+				${CC} ${CFLAGS} -Ilibft/ -c $<
 
 clean :
 				${MAKE} clean -C ${LIBSDIR}

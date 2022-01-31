@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_radix.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wmonacho <wmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: will <will@student.42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/30 12:35:37 by wmonacho          #+#    #+#             */
-/*   Updated: 2022/01/25 15:45:53 by wmonacho         ###   ########lyon.fr   */
+/*   Updated: 2022/01/31 17:01:01 by will             ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,27 +60,30 @@ static int	ft_severalrotate(t_list **tab_a, int count, int size)
 
 static int	ft_triradix(t_list **tab_a, t_list **tab_b, int j, int size)
 {
+	t_list	*temp;
+	int		number;
 	int		count;
 
+	temp = *tab_a;
 	count = 0;
-	while ((*tab_a)->next != NULL)
+	while ((temp) != NULL && (temp)->next != NULL)
 	{
-		printf("HW=%d\n", 6);
 		count++;
-		if ((1 & ((int)(*tab_a)->content) >> j) == 0)
+		number = *((int*)((temp)->content));
+		// printf("%d: %d\n", number, (1 & (number >> j)));
+
+		if ((1 & (number >> j)) == 0)
 		{
 			count--;
-			printf("HW=%d\n", 2);
 			if (count > 0)
-				ft_severalrotate(tab_a, count, size);
-			printf("HW=%d\n", 1);
-			ft_push_a(tab_a, tab_b);
+				ft_severalrotate(&temp, count, size);
+			ft_push_a(&temp, tab_b);
 		}
-		printf("HW=%d\n", 4);
-		*tab_a = (*tab_a)->next;
-		printf("HW=%d\n", 5);
+		temp = (temp)->next;
+		print_stack(tab_a);
 	}
-	printf("END");
+	
+	printf("END\n");
 	while ((*tab_b)->next != NULL)
 		ft_push_b(tab_a, tab_b);
 	return (0);
@@ -88,23 +91,24 @@ static int	ft_triradix(t_list **tab_a, t_list **tab_b, int j, int size)
 
 int	ft_setradix(t_list **tab_a, t_list **tab_b, int argc)
 {
-	t_list	*tmp;
 	int		size;
 	int		i;
+	int		j;
 
 	size = argc - 1;
 	i = 0;
 	while ((size >> i) != 0)
 		i++;
+	j = i;
 	while (i > 0)
 	{
-		tmp = *tab_a;
-		ft_triradix(&tmp, tab_b, size - i, size);
+		ft_triradix(tab_a, tab_b, j - i, size);
 		i--;
 	}
 	return (0);
 }
 
 /*
-
- */
+le souci maintenant c'est tab_a.
+il avance a chaque appel de triradix
+*/

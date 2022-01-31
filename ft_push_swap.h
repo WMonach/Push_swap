@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_push_swap.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wmonacho <wmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: will <will@student.42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 11:03:22 by wmonacho          #+#    #+#             */
-/*   Updated: 2022/01/25 11:16:01 by wmonacho         ###   ########lyon.fr   */
+/*   Updated: 2022/01/31 13:16:06 by will             ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,10 @@
 # include <stdlib.h>
 # include <limits.h>
 # include <stdio.h>
-# include "libft/libft.h"
+# include "libft.h"
 
+void	print_stack(t_list **stack);
+void 	print_tab(int *tab, int size);
 int		*ft_index(int argc, char **argv);
 int		ft_check(int argc, char **argv);
 int		ft_push_b(t_list **tab_a, t_list **tab_b);

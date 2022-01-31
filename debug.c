@@ -1,34 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_push_swap.c                                     :+:      :+:    :+:   */
+/*   debug.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: will <will@student.42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/27 12:05:08 by wmonacho          #+#    #+#             */
-/*   Updated: 2022/01/31 13:18:43 by will             ###   ########lyon.fr   */
+/*   Created: 2022/01/26 13:44:23 by will              #+#    #+#             */
+/*   Updated: 2022/01/31 13:15:44 by will             ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
 
-int	main(int argc, char **argv)
+void print_stack(t_list **stack)
 {
-	t_list		*tab_a;
-	t_list		*tab_b;
-	int			*tmp;
-
-	if (ft_check(argc, (char **)argv) == -1)
-		return (0);
-	tmp = ft_index(argc, argv);
-	tab_a = ft_list_a(argc - 1, tmp);
-	tab_b = ft_list_b();
-	ft_setradix(&tab_a, &tab_b, argc);
-	return (0);
+	t_list	*head;
+	
+	head = *stack;
+	
+	while (head != NULL)
+	{
+		printf("stack=%d\n", *(int*)(head->content));
+		head = head->next;
+	}
 }
 
-/*
-il faut que j'envoie tab_a et tab_b a setradix.
-pour ca je dois creer la list b et recuperer la list a
-pour creer tab_b je dois
-*/
+void print_tab(int *tab, int size)
+{
+	int	i;
+
+	i = 0;
+	while (i < size)
+	{
+		printf("tab=%d\n", tab[i]);
+		i++;
+	}
+}
