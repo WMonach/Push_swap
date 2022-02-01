@@ -3,93 +3,47 @@
 /*                                                        :::      ::::::::   */
 /*   ft_radix.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: will <will@student.42lyon.fr>              +#+  +:+       +#+        */
+/*   By: wmonacho <wmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/30 12:35:37 by wmonacho          #+#    #+#             */
-/*   Updated: 2022/01/31 17:01:01 by will             ###   ########lyon.fr   */
+/*   Updated: 2022/02/01 15:07:15 by wmonacho         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
 
-static int	ft_returnrotate(t_list **tab_a, int count, int size)
+/*
+il faut que je fasse un compteur dans triradix
+la condition du while doit dependre de ce compteur
+*/
+static int	ft_triradix(t_list **tab_a, t_list *tab_b, int j, int size)
 {
-	int	i;
-
-	i = size - count;
-	while (i > 0)
-		ft_rotate_a(tab_a);
-	return (0);
-}
-
-static int	ft_return_reverserotate(t_list **tab_a, int count)
-{
-	int	i;
-
-	i = count - 1;
-	while (i > 0)
-	{
-		ft_reverserotate_a(tab_a);
-		i--;
-	}
-	return (0);
-}
-
-static int	ft_severalrotate(t_list **tab_a, int count, int size)
-{
-	int	i;
-
-	i = count - 1;
-	if (count == 1)
-	{
-		ft_swap_a(tab_a);
-		return (0);
-	}
-	while (i > 0)
-	{
-		ft_rotate_a(tab_a);
-		i--;
-	}
-	ft_swap_a(tab_a);
-	if (count > size / 2)
-		ft_returnrotate(tab_a, count, size);
-	else
-		ft_return_reverserotate(tab_a, count);
-	return (1);
-}
-
-static int	ft_triradix(t_list **tab_a, t_list **tab_b, int j, int size)
-{
-	t_list	*temp;
 	int		number;
-	int		count;
+	int		i;
 
-	temp = *tab_a;
-	count = 0;
-	while ((temp) != NULL && (temp)->next != NULL)
+	i = 0;
+	printf("|");
+	print_stack(tab_a);
+	while (i < size)
 	{
-		count++;
-		number = *((int*)((temp)->content));
-		// printf("%d: %d\n", number, (1 & (number >> j)));
-
+		number = *((int *)((*tab_a)->content));
 		if ((1 & (number >> j)) == 0)
 		{
-			count--;
-			if (count > 0)
-				ft_severalrotate(&temp, count, size);
-			ft_push_a(&temp, tab_b);
+			ft_push_a(tab_a, &tab_b);
+			i++;
 		}
-		temp = (temp)->next;
-		print_stack(tab_a);
+		if ((1 & (number >> j)) != 0)
+		{
+			ft_rotate_a(tab_a);
+			i++;
+		}
 	}
-	
-	printf("END\n");
-	while ((*tab_b)->next != NULL)
-		ft_push_b(tab_a, tab_b);
+	while (tab_b != NULL)
+		ft_push_b(tab_a, &tab_b);
 	return (0);
 }
 
-int	ft_setradix(t_list **tab_a, t_list **tab_b, int argc)
+int	ft_setradix(t_list *tab_a, t_list *tab_b, int argc)
 {
 	int		size;
 	int		i;
@@ -102,13 +56,13 @@ int	ft_setradix(t_list **tab_a, t_list **tab_b, int argc)
 	j = i;
 	while (i > 0)
 	{
-		ft_triradix(tab_a, tab_b, j - i, size);
+		ft_triradix(&tab_a, tab_b, j - i, size);
+		printf("|\n");
+		print_stack(&tab_a);
 		i--;
 	}
 	return (0);
 }
 
 /*
-le souci maintenant c'est tab_a.
-il avance a chaque appel de triradix
 */

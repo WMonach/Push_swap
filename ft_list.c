@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_list.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: will <will@student.42lyon.fr>              +#+  +:+       +#+        */
+/*   By: wmonacho <wmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 15:31:53 by wmonacho          #+#    #+#             */
-/*   Updated: 2022/01/31 17:00:36 by will             ###   ########lyon.fr   */
+/*   Updated: 2022/02/01 13:31:38 by wmonacho         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,7 @@ t_list	*ft_list_b(void)
 {
 	t_list	*tab_b;
 
-	tab_b = ft_lstnew(NULL);
-	if (!tab_b)
-		return (NULL);
+	tab_b = NULL;
 	return (tab_b);
 }
 

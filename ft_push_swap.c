@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_push_swap.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: will <will@student.42lyon.fr>              +#+  +:+       +#+        */
+/*   By: wmonacho <wmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 12:05:08 by wmonacho          #+#    #+#             */
-/*   Updated: 2022/01/31 13:18:43 by will             ###   ########lyon.fr   */
+/*   Updated: 2022/02/01 15:03:25 by wmonacho         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	main(int argc, char **argv)
 	tmp = ft_index(argc, argv);
 	tab_a = ft_list_a(argc - 1, tmp);
 	tab_b = ft_list_b();
-	ft_setradix(&tab_a, &tab_b, argc);
+	ft_setradix(tab_a, tab_b, argc);
 	return (0);
 }
 

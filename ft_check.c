@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: will <will@student.42lyon.fr>              +#+  +:+       +#+        */
+/*   By: wmonacho <wmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/22 17:31:04 by wmonacho          #+#    #+#             */
-/*   Updated: 2022/01/25 20:22:17 by will             ###   ########lyon.fr   */
+/*   Updated: 2022/02/01 16:23:52 by wmonacho         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,12 @@ int	ft_check_int(int argc, char *argv[])
 		j = 0;
 		while (argv[i][j] != '\0')
 		{
-			if ((argv[i][j]) < '0' || (argv[i][j++]) > '9')
+			if (argv[i][j] == '-')
+				j++;
+			if (!ft_isdigit(argv[i][j]))
+				return (-1);
+			j++;
+			if (argv[i][j] == '-')
 				return (-1);
 		}
 		i++;
@@ -69,7 +74,7 @@ int	ft_check_duplicate(int argc, char *argv[])
 		while (j < argc - 1)
 		{
 			numberone = ft_atoi(argv[j]);
-			if (numberone == number)
+			if (numberone == number && numberone != '"')
 				return (-1);
 			j++;
 		}
@@ -80,7 +85,7 @@ int	ft_check_duplicate(int argc, char *argv[])
 
 int	ft_check(int argc, char *argv[])
 {
-	if (argc < 2)
+	if (argc < 3)
 		return (ft_error());
 	if (ft_check_int(argc, argv) == -1)
 		return (ft_error());

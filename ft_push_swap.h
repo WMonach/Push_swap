@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_push_swap.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: will <will@student.42lyon.fr>              +#+  +:+       +#+        */
+/*   By: wmonacho <wmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 11:03:22 by wmonacho          #+#    #+#             */
-/*   Updated: 2022/01/31 13:16:06 by will             ###   ########lyon.fr   */
+/*   Updated: 2022/02/01 09:52:09 by wmonacho         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,14 @@
 # include "libft.h"
 
 void	print_stack(t_list **stack);
-void 	print_tab(int *tab, int size);
+void	print_tab(int *tab, int size);
 int		*ft_index(int argc, char **argv);
 int		ft_check(int argc, char **argv);
 int		ft_push_b(t_list **tab_a, t_list **tab_b);
 int		ft_push_a(t_list **tab_a, t_list **tab_b);
 t_list	*ft_list_a(int argc, int *tab);
 t_list	*ft_list_b(void);
-int		ft_setradix(t_list **tab_a, t_list **tab_b, int argc);
+int		ft_setradix(t_list *tab_a, t_list *tab_b, int argc);
 int		ft_rotate_a(t_list **tab_a);
 int		ft_rotate_b(t_list **tab_b);
 int		ft_swap_a(t_list **tab_a);
