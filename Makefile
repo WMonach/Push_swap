@@ -17,7 +17,8 @@ FILES =	ft_check.c            \
 		ft_reverse_rotate.c   \
 		ft_rotate.c           \
 		ft_swap.c             \
-		debug.c
+		debug.c               \
+		ft_tri_under_5.c      \
 
 OBJ = ${FILES:.c=.o}
 

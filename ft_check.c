@@ -6,7 +6,7 @@
 /*   By: wmonacho <wmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/22 17:31:04 by wmonacho          #+#    #+#             */
-/*   Updated: 2022/02/01 16:23:52 by wmonacho         ###   ########lyon.fr   */
+/*   Updated: 2022/02/02 14:04:59 by wmonacho         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,8 +85,15 @@ int	ft_check_duplicate(int argc, char *argv[])
 
 int	ft_check(int argc, char *argv[])
 {
-	if (argc < 3)
+	if (argc < 2)
 		return (ft_error());
+	// if (argc == 3)
+	// {
+	// 	if ((ft_check_quote(argc, argv)) == -1)
+	// 		return (ft_error());
+	// 	else
+	// 		return (0);
+	// }
 	if (ft_check_int(argc, argv) == -1)
 		return (ft_error());
 	if (ft_check_max_min(argc, argv) == -1)

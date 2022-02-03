@@ -6,7 +6,7 @@
 /*   By: wmonacho <wmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 11:03:22 by wmonacho          #+#    #+#             */
-/*   Updated: 2022/02/01 09:52:09 by wmonacho         ###   ########lyon.fr   */
+/*   Updated: 2022/02/03 09:47:47 by wmonacho         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stdlib.h>
 # include <limits.h>
+# include <unistd.h>
 # include <stdio.h>
 # include "libft.h"
 
@@ -33,5 +34,6 @@ int		ft_swap_a(t_list **tab_a);
 int		ft_swap_b(t_list **tab_b);
 int		ft_reverserotate_a(t_list **tab_a);
 int		ft_reverserotate_b(t_list **tab_b);
+int		ft_tri_under_5(t_list *tab_a, int size);
 
 #endif

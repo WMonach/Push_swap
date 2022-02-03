@@ -6,7 +6,7 @@
 /*   By: wmonacho <wmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 12:05:08 by wmonacho          #+#    #+#             */
-/*   Updated: 2022/02/01 15:03:25 by wmonacho         ###   ########lyon.fr   */
+/*   Updated: 2022/02/03 09:48:35 by wmonacho         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,17 @@ int	main(int argc, char **argv)
 	tmp = ft_index(argc, argv);
 	tab_a = ft_list_a(argc - 1, tmp);
 	tab_b = ft_list_b();
-	ft_setradix(tab_a, tab_b, argc);
+	if (argc < 7)
+	{
+		ft_tri_under_5(tab_a, argc);
+		return (0);
+	}
+	ft_setradix(tab_a, tab_b, argc - 1);
 	return (0);
 }
 
 /*
 il faut que j'envoie tab_a et tab_b a setradix.
 pour ca je dois creer la list b et recuperer la list a
-pour creer tab_b je dois
+pour creer tab_b je dois//
 */
