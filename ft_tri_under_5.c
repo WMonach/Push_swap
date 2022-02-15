@@ -6,7 +6,7 @@
 /*   By: wmonacho <wmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 10:48:29 by wmonacho          #+#    #+#             */
-/*   Updated: 2022/02/08 13:25:41 by wmonacho         ###   ########lyon.fr   */
+/*   Updated: 2022/02/15 14:16:20 by wmonacho         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,11 +61,9 @@ void	ft_tri_5(t_list *tab_a)
 
 int	ft_tri_under_5(t_list *tab_a, int size)
 {
-	int	i;
 	int	numberone;
 	int	numbertwo;
 
-	i = 1;
 	if (size == 2)
 		return (0);
 	if (size == 3)
