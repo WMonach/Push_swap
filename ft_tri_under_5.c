@@ -6,7 +6,7 @@
 /*   By: wmonacho <wmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 10:48:29 by wmonacho          #+#    #+#             */
-/*   Updated: 2022/02/03 11:47:01 by wmonacho         ###   ########lyon.fr   */
+/*   Updated: 2022/02/08 13:25:41 by wmonacho         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,20 +57,6 @@ void	ft_tri_4(t_list *tab_a)
 
 void	ft_tri_5(t_list *tab_a)
 {
-	int	nb4;
-
-	nb4 = *(int *)(tab_a->content);
-	write(1, "pb\n", 3);
-	ft_tri_4(tab_a->next);
-	write(1, "pa\n", 3);
-	if (nb4 == 0)
-		write(1, "rra\n", 4);
-	if (nb4 == 1)
-		write(1, "rra\nsa\n", 7);
-	if (nb4 == 2)
-		write(1, "pb\nrra\nsa\npa\n", 12);
-	if (nb4 == 3)
-		write(1, "rra\nrra\nsa\nra\nra\n", 17);
 }
 
 int	ft_tri_under_5(t_list *tab_a, int size)

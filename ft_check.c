@@ -6,7 +6,7 @@
 /*   By: wmonacho <wmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/22 17:31:04 by wmonacho          #+#    #+#             */
-/*   Updated: 2022/02/02 14:04:59 by wmonacho         ###   ########lyon.fr   */
+/*   Updated: 2022/02/08 09:23:24 by wmonacho         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 int	ft_error(void)
 {
 	ft_putstr_fd("Error\n", 1);
-	return (-1);
+	return (0);
 }
 
 int	ft_check_int(int argc, char *argv[])
@@ -33,14 +33,14 @@ int	ft_check_int(int argc, char *argv[])
 			if (argv[i][j] == '-')
 				j++;
 			if (!ft_isdigit(argv[i][j]))
-				return (-1);
+				return (0);
 			j++;
 			if (argv[i][j] == '-')
-				return (-1);
+				return (0);
 		}
 		i++;
 	}
-	return (0);
+	return (1);
 }
 
 int	ft_check_max_min(int argc, char *argv[])
@@ -75,12 +75,12 @@ int	ft_check_duplicate(int argc, char *argv[])
 		{
 			numberone = ft_atoi(argv[j]);
 			if (numberone == number && numberone != '"')
-				return (-1);
+				return (0);
 			j++;
 		}
 		i++;
 	}
-	return (0);
+	return (1);
 }
 
 int	ft_check(int argc, char *argv[])
@@ -89,16 +89,16 @@ int	ft_check(int argc, char *argv[])
 		return (ft_error());
 	// if (argc == 3)
 	// {
-	// 	if ((ft_check_quote(argc, argv)) == -1)
+	// 	if ((ft_check_quote(argc, argv)) == 0)
 	// 		return (ft_error());
 	// 	else
 	// 		return (0);
 	// }
-	if (ft_check_int(argc, argv) == -1)
+	if (ft_check_int(argc, argv) == 0)
 		return (ft_error());
-	if (ft_check_max_min(argc, argv) == -1)
+	if (ft_check_max_min(argc, argv) == 0)
 		return (ft_error());
-	if (ft_check_duplicate(argc, argv) == -1)
+	if (ft_check_duplicate(argc, argv) == 0)
 		return (ft_error());
 	return (0);
 }
