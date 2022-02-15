@@ -6,7 +6,7 @@
 /*   By: wmonacho <wmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 12:05:08 by wmonacho          #+#    #+#             */
-/*   Updated: 2022/02/03 09:48:35 by wmonacho         ###   ########lyon.fr   */
+/*   Updated: 2022/02/15 16:57:38 by wmonacho         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	main(int argc, char **argv)
 	t_list		*tab_b;
 	int			*tmp;
 
-	if (ft_check(argc, (char **)argv) == -1)
+	if (ft_check(argc, (char **)argv) == 0)
 		return (0);
 	tmp = ft_index(argc, argv);
 	tab_a = ft_list_a(argc - 1, tmp);

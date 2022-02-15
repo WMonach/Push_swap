@@ -6,7 +6,7 @@
 /*   By: wmonacho <wmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 15:31:53 by wmonacho          #+#    #+#             */
-/*   Updated: 2022/02/01 13:31:38 by wmonacho         ###   ########lyon.fr   */
+/*   Updated: 2022/02/15 16:56:47 by wmonacho         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ t_list	*ft_list_a(int numbers_len, int *tab)
 	t_list	*tab_a = NULL;
 
 	i = 0;
-	print_tab(tab, numbers_len);
+	//print_tab(tab, numbers_len);
 	while (i < numbers_len)
 	{
 		ft_lstadd_back(&tab_a, ft_lstnew((void*)&tab[i]));

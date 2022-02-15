@@ -6,7 +6,7 @@
 /*   By: wmonacho <wmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 10:48:29 by wmonacho          #+#    #+#             */
-/*   Updated: 2022/02/15 14:16:20 by wmonacho         ###   ########lyon.fr   */
+/*   Updated: 2022/02/15 17:02:51 by wmonacho         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,9 @@ void	ft_tri_4(t_list *tab_a)
 		write(1, "ra\n", 3);
 }
 
-void	ft_tri_5(t_list *tab_a)
-{
-}
+// void	ft_tri_5(t_list *tab_a)
+// {
+// }
 
 int	ft_tri_under_5(t_list *tab_a, int size)
 {
@@ -78,7 +78,7 @@ int	ft_tri_under_5(t_list *tab_a, int size)
 		ft_tri_3(tab_a);
 	if (size == 5)
 		ft_tri_4(tab_a);
-	if (size == 6)
-		ft_tri_5(tab_a);
+	// if (size == 6)
+	// 	ft_tri_5(tab_a);
 	return (0);
 }
