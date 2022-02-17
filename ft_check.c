@@ -6,7 +6,7 @@
 /*   By: wmonacho <wmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/22 17:31:04 by wmonacho          #+#    #+#             */
-/*   Updated: 2022/02/15 17:01:28 by wmonacho         ###   ########lyon.fr   */
+/*   Updated: 2022/02/16 11:01:15 by wmonacho         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,19 +106,15 @@ int	ft_check(int argc, char *argv[])
 {
 	if (argc < 2)
 		return (ft_error());
-	printf("1\n");
 	if (argc == 3 && argv[2][0] == '"')
 	{
 		if ((ft_check_quote(argv)) == -1)
 			return (ft_error());
 	}
-	printf("1\n");
 	if (ft_check_int(argc, argv) == -1)
 		return (ft_error());
-	printf("1\n");
 	if (ft_check_max_min(argc, argv) == 0)
 		return (ft_error());
-	printf("1\n");
 	if (ft_check_duplicate(argc, argv) == 0)
 		return (ft_error());
 	return (1);
