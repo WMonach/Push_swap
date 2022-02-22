@@ -6,7 +6,7 @@
 /*   By: wmonacho <wmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 12:29:16 by wmonacho          #+#    #+#             */
-/*   Updated: 2022/02/01 09:03:38 by wmonacho         ###   ########lyon.fr   */
+/*   Updated: 2022/02/22 17:46:54 by wmonacho         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,20 +47,23 @@ int	*ft_count(int *temp, int numbers_count)
 	return (tab);
 }
 
-int	*ft_index(int argc, char **argv)
+int	*ft_index(int argc, char **tab)
 {
 	int	*temp;
 	int	i;
 	int	j;
 
-	i = 1;
+	if (tab[0][0] == '.')
+		i = 1;
+	else
+		i = 0;
 	temp = (int *)malloc(sizeof(int) * (argc - 1));
 	if (temp == NULL)
 		return (ft_free(temp));
 	j = 0;
 	while (i < argc)
 	{
-		temp[j] = ft_atoi(argv[i]);
+		temp[j] = ft_atoi(tab[i]);
 		i++;
 		j++;
 	}

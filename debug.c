@@ -6,7 +6,7 @@
 /*   By: wmonacho <wmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 13:44:23 by will              #+#    #+#             */
-/*   Updated: 2022/02/01 16:26:30 by wmonacho         ###   ########lyon.fr   */
+/*   Updated: 2022/02/22 17:11:11 by wmonacho         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,18 @@ void	print_tab(int *tab, int size)
 	while (i < size)
 	{
 		printf("tab=%d\n", tab[i]);
+		i++;
+	}
+}
+
+void	print_argv(char **tab, int size)
+{
+	int	i;
+
+	i = 0;
+	while (i < size)
+	{
+		printf("%s\n", tab[i]);
 		i++;
 	}
 }

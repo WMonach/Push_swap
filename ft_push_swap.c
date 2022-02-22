@@ -6,7 +6,7 @@
 /*   By: wmonacho <wmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 12:05:08 by wmonacho          #+#    #+#             */
-/*   Updated: 2022/02/15 16:57:38 by wmonacho         ###   ########lyon.fr   */
+/*   Updated: 2022/02/22 17:14:24 by wmonacho         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,18 @@ int	main(int argc, char **argv)
 	t_list		*tab_a;
 	t_list		*tab_b;
 	int			*tmp;
+	char		**tab;
 
-	if (ft_check(argc, (char **)argv) == 0)
+	tab = ft_check(&argc, argv);
+	if (tab == NULL)
 		return (0);
-	tmp = ft_index(argc, argv);
+	print_argv(tab, argc);
+	tmp = ft_index(argc, tab);
 	tab_a = ft_list_a(argc - 1, tmp);
 	tab_b = ft_list_b();
 	if (argc < 7)
 	{
-		ft_tri_under_5(tab_a, argc);
+		ft_tri_under_5(tab_a, tab_b, argc);
 		return (0);
 	}
 	ft_setradix(tab_a, tab_b, argc - 1);

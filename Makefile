@@ -19,6 +19,7 @@ FILES =	ft_check.c            \
 		ft_swap.c             \
 		debug.c               \
 		ft_tri_under_5.c      \
+		ft_3_4_5.c            \
 
 OBJ = ${FILES:.c=.o}
 
@@ -30,7 +31,7 @@ libs :
 ${NAME} : 	${OBJ} ${LIBSDIR}libft.a
 				${CC} ${CFLAGS} -Llibft/ ${OBJ} -o push_swap -lft
 
-%.o:			%.c
+%.o:			%.c ft_push_swap.h ${LIBSDIR}libft.h
 				${CC} ${CFLAGS} -Ilibft/ -c $<
 
 clean :

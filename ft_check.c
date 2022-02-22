@@ -6,36 +6,49 @@
 /*   By: wmonacho <wmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/22 17:31:04 by wmonacho          #+#    #+#             */
-/*   Updated: 2022/02/16 11:01:15 by wmonacho         ###   ########lyon.fr   */
+/*   Updated: 2022/02/22 17:42:55 by wmonacho         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "ft_push_swap.h"
 
-int	ft_error(void)
+char	**ft_error(void)
 {
 	ft_putstr_fd("Error\n", 1);
-	return (0);
+	return (NULL);
 }
 
-int	ft_check_quote(char *argv[])
+static int	ft_nbr_words(char const	*str, char charset)
 {
+	int	nbrw;
 	int	i;
 
-	i = 1;
-	while (argv[2][i] != '"' )
+	nbrw = 0;
+	i = 0;
+	while (str[i])
 	{
-		if (ft_isdigit(argv[2][i]) == 0)
-			return (0);
-		i++;
-		if (argv[2][i] == '"')
-			return (0);
-		if (argv[2][i] != ' ')
-			return (0);
-		i++;
+		while (str[i] == charset && str[i])
+		{
+			i++;
+		}
+		if (str[i] != charset && str[i])
+			nbrw++;
+		while (str[i] != charset && str[i])
+		{
+			i++;
+		}
 	}
-	return (1);
+	return (nbrw);
+}
+
+char	**ft_check_quote(char **argv, int *size)
+{
+	char	**tab;
+
+	*size = ft_nbr_words(argv[1], ' ') + 1;
+	tab = ft_split(argv[1], ' ');
+	return (tab);
 }
 
 int	ft_check_int(int argc, char *argv[])
@@ -102,22 +115,26 @@ int	ft_check_duplicate(int argc, char *argv[])
 	return (1);
 }
 
-int	ft_check(int argc, char *argv[])
+char	**ft_check(int *size, char **argv)
 {
-	if (argc < 2)
+	char	**tab;
+
+	tab = argv;
+	if (*size < 2)
 		return (ft_error());
-	if (argc == 3 && argv[2][0] == '"')
+	if (*size == 2)
 	{
-		if ((ft_check_quote(argv)) == -1)
+		tab = ft_check_quote(tab, size);
+		if (tab == NULL)
 			return (ft_error());
 	}
-	if (ft_check_int(argc, argv) == -1)
+	if (ft_check_int(*size, tab) == -1)
 		return (ft_error());
-	if (ft_check_max_min(argc, argv) == 0)
+	if (ft_check_max_min(*size, tab) == 0)
 		return (ft_error());
-	if (ft_check_duplicate(argc, argv) == 0)
+	if (ft_check_duplicate(*size, tab) == 0)
 		return (ft_error());
-	return (1);
+	return (tab);
 }
 
 /*
