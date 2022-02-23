@@ -6,7 +6,7 @@
 /*   By: wmonacho <wmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 12:29:16 by wmonacho          #+#    #+#             */
-/*   Updated: 2022/02/22 17:46:54 by wmonacho         ###   ########lyon.fr   */
+/*   Updated: 2022/02/23 11:49:15 by wmonacho         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,15 +53,12 @@ int	*ft_index(int argc, char **tab)
 	int	i;
 	int	j;
 
-	if (tab[0][0] == '.')
-		i = 1;
-	else
-		i = 0;
-	temp = (int *)malloc(sizeof(int) * (argc - 1));
+	i = 0;
+	temp = (int *)malloc(sizeof(int) * (argc));
 	if (temp == NULL)
 		return (ft_free(temp));
 	j = 0;
-	while (i < argc)
+	while (i < argc - 1)
 	{
 		temp[j] = ft_atoi(tab[i]);
 		i++;
@@ -69,3 +66,6 @@ int	*ft_index(int argc, char **tab)
 	}
 	return (ft_count(temp, argc - 1));
 }
+/*
+faudrait que j'arrive a mettre ./push_swap dans mon tab aussi
+*/

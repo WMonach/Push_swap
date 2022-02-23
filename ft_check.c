@@ -6,7 +6,7 @@
 /*   By: wmonacho <wmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/22 17:31:04 by wmonacho          #+#    #+#             */
-/*   Updated: 2022/02/22 17:42:55 by wmonacho         ###   ########lyon.fr   */
+/*   Updated: 2022/02/23 11:43:24 by wmonacho         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,53 @@ char	**ft_error(void)
 {
 	ft_putstr_fd("Error\n", 1);
 	return (NULL);
+}
+
+static char	**ft_malloc_ws(char const	*str, char charset, char **tab, int j)
+{
+	int	i;
+	int	wlen;
+
+	i = 0;
+	while (str[i])
+	{
+		wlen = 0;
+		while (str[i] == charset && str[i])
+			i++;
+		while (str[i] != charset && str[i])
+		{
+			i++;
+			wlen++;
+		}
+		tab[j] = (char *)malloc(sizeof(char) * (wlen + 1));
+		if (tab[j] == NULL)
+			return (NULL);
+		while (str[i] == charset && str[i])
+			i++;
+	}
+	return (tab);
+}
+
+char	**ft_delete_ex(char **argv, int size)
+{
+	char	**tab;
+	int		i;
+	int		j;
+
+	i = 1;
+	j = 0;
+	tab = (char **)malloc(sizeof(char *) * (size));
+	while (i < size)
+	{
+		tab = ft_malloc_ws(argv[i], ' ', tab, j);
+		if (tab == NULL)
+			return (NULL);
+		tab[j] = argv[i];
+		i++;
+		j++;
+	}
+	tab[j] = NULL;
+	return (tab);
 }
 
 static int	ft_nbr_words(char const	*str, char charset)
@@ -56,7 +103,7 @@ int	ft_check_int(int argc, char *argv[])
 	int	i;
 	int	j;
 
-	i = 1;
+	i = 0;
 	while (i < argc)
 	{
 		j = 0;
@@ -125,6 +172,12 @@ char	**ft_check(int *size, char **argv)
 	if (*size == 2)
 	{
 		tab = ft_check_quote(tab, size);
+		if (tab == NULL)
+			return (ft_error());
+	}
+	else
+	{
+		tab = ft_delete_ex(argv, *size);
 		if (tab == NULL)
 			return (ft_error());
 	}

@@ -6,7 +6,7 @@
 /*   By: wmonacho <wmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 10:48:29 by wmonacho          #+#    #+#             */
-/*   Updated: 2022/02/22 16:39:28 by wmonacho         ###   ########lyon.fr   */
+/*   Updated: 2022/02/23 17:57:59 by wmonacho         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ void	ft_tri_5(t_list **tab_a, t_list **tab_b)
 
 	i = 0;
 	temp = *tab_a;
+	print_stack(tab_a);
 	while (temp->content != 0)
 	{
 		temp = temp->next;
@@ -90,10 +91,7 @@ void	ft_tri_5(t_list **tab_a, t_list **tab_b)
 int	ft_tri_under_5(t_list *tab_a, t_list *tab_b, int size)
 {
 	if (size == 2)
-	{
-		printf("ha\n");
 		return (0);
-	}
 	if (size == 3)
 		ft_tri_2(&tab_a);
 	if (size == 4)
