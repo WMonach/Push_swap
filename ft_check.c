@@ -6,7 +6,7 @@
 /*   By: wmonacho <wmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/22 17:31:04 by wmonacho          #+#    #+#             */
-/*   Updated: 2022/02/23 11:43:24 by wmonacho         ###   ########lyon.fr   */
+/*   Updated: 2022/02/24 13:18:22 by wmonacho         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ static char	**ft_malloc_ws(char const	*str, char charset, char **tab, int j)
 	return (tab);
 }
 
-char	**ft_delete_ex(char **argv, int size)
+char	**ft_delete_ex(char **argv, int *size)
 {
 	char	**tab;
 	int		i;
@@ -52,8 +52,8 @@ char	**ft_delete_ex(char **argv, int size)
 
 	i = 1;
 	j = 0;
-	tab = (char **)malloc(sizeof(char *) * (size));
-	while (i < size)
+	tab = (char **)malloc(sizeof(char *) * (*size));
+	while (i < *size)
 	{
 		tab = ft_malloc_ws(argv[i], ' ', tab, j);
 		if (tab == NULL)
@@ -177,7 +177,7 @@ char	**ft_check(int *size, char **argv)
 	}
 	else
 	{
-		tab = ft_delete_ex(argv, *size);
+		tab = ft_delete_ex(argv, size);
 		if (tab == NULL)
 			return (ft_error());
 	}

@@ -6,7 +6,7 @@
 /*   By: wmonacho <wmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/30 12:35:37 by wmonacho          #+#    #+#             */
-/*   Updated: 2022/02/22 15:14:34 by wmonacho         ###   ########lyon.fr   */
+/*   Updated: 2022/02/24 14:21:08 by wmonacho         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,7 @@ int	ft_setradix(t_list *tab_a, t_list *tab_b, int size)
 	while (i > 0)
 	{
 		ft_triradix(&tab_a, tab_b, j - i, size);
-		// printf("|\n");
-		// print_stack(&tab_a);
+		print_stack(&tab_a);
 		i--;
 	}
 	return (0);

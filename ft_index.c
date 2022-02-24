@@ -6,7 +6,7 @@
 /*   By: wmonacho <wmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 12:29:16 by wmonacho          #+#    #+#             */
-/*   Updated: 2022/02/23 11:49:15 by wmonacho         ###   ########lyon.fr   */
+/*   Updated: 2022/02/24 13:39:48 by wmonacho         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	*ft_count(int *temp, int numbers_count)
 	int	*tab;
 
 	i = 0;
-	tab = (int *)malloc(sizeof(int) * (numbers_count));
+	tab = (int *)malloc(sizeof(int) * (numbers_count + 1));
 	if (tab == NULL)
 		return (ft_free(tab));
 	while (i < numbers_count)

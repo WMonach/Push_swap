@@ -6,7 +6,7 @@
 /*   By: wmonacho <wmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 11:32:09 by wmonacho          #+#    #+#             */
-/*   Updated: 2022/02/03 09:51:33 by wmonacho         ###   ########lyon.fr   */
+/*   Updated: 2022/02/24 14:20:32 by wmonacho         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int	ft_reverserotate_a(t_list **tab_a)
 	ft_lstadd_front(tab_a, tempi);
 	write(1, "rra\n", 4);
 	free(tmp);
+	print_stack(tab_a);
 	return (0);
 }
 
