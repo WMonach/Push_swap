@@ -6,7 +6,7 @@
 /*   By: wmonacho <wmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/29 11:14:35 by wmonacho          #+#    #+#             */
-/*   Updated: 2022/02/03 09:51:53 by wmonacho         ###   ########lyon.fr   */
+/*   Updated: 2022/03/01 13:45:38 by wmonacho         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ int	ft_rotate_a(t_list **tab_a)
 		return (-1);
 	ft_lstadd_back(tab_a, tempi);
 	write(1, "ra\n", 3);
-	free(tmp);
 	return (0);
 }
 
@@ -40,6 +39,5 @@ int	ft_rotate_b(t_list **tab_b)
 		return (-1);
 	ft_lstadd_back(tab_b, tempi);
 	write(1, "rb\n", 3);
-	free(tmp);
 	return (0);
 }

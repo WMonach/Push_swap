@@ -6,7 +6,7 @@
 /*   By: wmonacho <wmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 12:29:16 by wmonacho          #+#    #+#             */
-/*   Updated: 2022/02/24 13:39:48 by wmonacho         ###   ########lyon.fr   */
+/*   Updated: 2022/03/01 10:18:46 by wmonacho         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,13 +58,13 @@ int	*ft_index(int argc, char **tab)
 	if (temp == NULL)
 		return (ft_free(temp));
 	j = 0;
-	while (i < argc - 1)
+	while (i < argc)
 	{
 		temp[j] = ft_atoi(tab[i]);
 		i++;
 		j++;
 	}
-	return (ft_count(temp, argc - 1));
+	return (ft_count(temp, argc));
 }
 /*
 faudrait que j'arrive a mettre ./push_swap dans mon tab aussi

@@ -6,7 +6,7 @@
 /*   By: wmonacho <wmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 10:53:10 by wmonacho          #+#    #+#             */
-/*   Updated: 2022/02/22 15:06:58 by wmonacho         ###   ########lyon.fr   */
+/*   Updated: 2022/03/01 15:48:23 by wmonacho         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,15 @@ void	ft_push_me(t_list **tab_a, t_list **tab_b, int location, int mod)
 	}
 	if (mod == 2)
 	{
-		if (location > 1)
-			while (location++ < 3)
+		if (location > 2)
+		{
+			while (location < 3)
+			{
 				ft_reverserotate_a(tab_a);
-		if (location <= 1)
+				location++;
+			}
+		}
+		if (location <= 2)
 			while (location-- != 0)
 				ft_rotate_a(tab_a);
 		ft_push_b(tab_a, tab_b);
@@ -44,5 +49,5 @@ void	ft_tri_2(t_list **tab_a)
 	numberone = *(int *)((*tab_a)->content);
 	numbertwo = *(int *)((*tab_a)->next->content);
 	if (numberone > numbertwo)
-		write(1, "sa\n", 3);
+		ft_swap_a(tab_a);
 }

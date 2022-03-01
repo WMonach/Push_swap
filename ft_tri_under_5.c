@@ -6,7 +6,7 @@
 /*   By: wmonacho <wmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 10:48:29 by wmonacho          #+#    #+#             */
-/*   Updated: 2022/02/24 14:02:26 by wmonacho         ###   ########lyon.fr   */
+/*   Updated: 2022/03/01 15:44:18 by wmonacho         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,11 @@ void	ft_tri_4(t_list **tab_a, t_list **tab_b)
 	if (nb3 == 1)
 		ft_swap_a(tab_a);
 	if (nb3 == 2 || (nb3 == 3 && (nb2 == 4 || nb1 == 4 || nb0 == 4)))
-		write(1, "rra\nsa\nra\nra", 12);
+	{
+		ft_reverserotate_a(tab_a);
+		ft_swap_a(tab_a);
+		ft_rotate_a(tab_a);
+	}
 	if (nb3 >= 4)
 		ft_rotate_a(tab_a);
 }
@@ -68,24 +72,28 @@ void	ft_tri_5(t_list **tab_a, t_list **tab_b)
 
 	i = 0;
 	temp = *tab_a;
-	printf("ha\n");
-	while (temp->content != 0)
+	print_stack(tab_a);
+	while (temp && *(int *)(temp->content) != 0)
 	{
 		temp = temp->next;
 		i++;
 	}
+	printf("i=%d\n", i);
 	ft_push_me(tab_a, tab_b, i, 1);
 	temp = *tab_a;
 	i = 0;
-	while ((int)(temp->content) != 1)
+	while (temp && *(int *)(temp->content) != 1)
 	{
 		temp = temp->next;
 		i++;
 	}
+	print_stack(tab_a);
+	printf("i=%d\n", i);
 	ft_push_me(tab_a, tab_b, i, 2);
 	ft_tri_3(tab_a);
 	ft_push_a(tab_a, tab_b);
 	ft_push_a(tab_a, tab_b);
+	print_stack(tab_a);
 }
 
 int	ft_tri_under_5(t_list *tab_a, t_list *tab_b, int size)

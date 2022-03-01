@@ -6,7 +6,7 @@
 /*   By: wmonacho <wmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/22 17:31:04 by wmonacho          #+#    #+#             */
-/*   Updated: 2022/02/24 13:18:22 by wmonacho         ###   ########lyon.fr   */
+/*   Updated: 2022/03/01 16:58:34 by wmonacho         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,34 @@ char	**ft_error(void)
 {
 	ft_putstr_fd("Error\n", 1);
 	return (NULL);
+}
+
+long	ft_atoi_long(const char *str)
+{
+	long	nb;
+	int		i;
+	long	minus;
+
+	i = 0;
+	nb = 0;
+	minus = 1;
+	while (str[i] == '\t' || str[i] == '\v' || str[i] == '\n'
+		|| str[i] == '\r' || str[i] == ' ' || str[i] == '\f')
+		i++;
+	if (str[i] == '-' || str[i] == '+')
+	{
+		if (str[i] == '-')
+			minus = -minus;
+		i++;
+	}
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		nb = nb * 10;
+		nb = nb + str[i] - '0';
+		i++;
+	}
+	nb = nb * minus;
+	return (nb);
 }
 
 static char	**ft_malloc_ws(char const	*str, char charset, char **tab, int j)
@@ -36,6 +64,7 @@ static char	**ft_malloc_ws(char const	*str, char charset, char **tab, int j)
 			wlen++;
 		}
 		tab[j] = (char *)malloc(sizeof(char) * (wlen + 1));
+		tab[j][wlen] = '\0';
 		if (tab[j] == NULL)
 			return (NULL);
 		while (str[i] == charset && str[i])
@@ -63,6 +92,7 @@ char	**ft_delete_ex(char **argv, int *size)
 		j++;
 	}
 	tab[j] = NULL;
+	*size = j;
 	return (tab);
 }
 
@@ -94,6 +124,8 @@ char	**ft_check_quote(char **argv, int *size)
 	char	**tab;
 
 	*size = ft_nbr_words(argv[1], ' ') + 1;
+	if (*size == 2)
+		return (NULL);
 	tab = ft_split(argv[1], ' ');
 	return (tab);
 }
@@ -128,9 +160,9 @@ int	ft_check_max_min(int argc, char *argv[])
 	long	number;
 
 	i = 0;
-	while (i < argc - 1)
+	while (i < argc)
 	{
-		number = ft_atoi(argv[i]);
+		number = ft_atoi_long(argv[i]);
 		if (number < INT_MIN || number > INT_MAX)
 			return (0);
 		i++;
@@ -146,14 +178,14 @@ int	ft_check_duplicate(int argc, char *argv[])
 	long	numberone;
 
 	i = 0;
-	while (i < argc - 1)
+	while (i < argc)
 	{
 		number = ft_atoi(argv[i]);
 		j = i + 1;
-		while (j < argc - 1)
+		while (j < argc)
 		{
 			numberone = ft_atoi(argv[j]);
-			if (numberone == number && numberone != '"')
+			if (numberone == number)
 				return (0);
 			j++;
 		}
@@ -181,7 +213,7 @@ char	**ft_check(int *size, char **argv)
 		if (tab == NULL)
 			return (ft_error());
 	}
-	if (ft_check_int(*size, tab) == -1)
+	if (ft_check_int(*size, tab) == 0)
 		return (ft_error());
 	if (ft_check_max_min(*size, tab) == 0)
 		return (ft_error());

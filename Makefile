@@ -20,6 +20,7 @@ FILES =	ft_check.c            \
 		debug.c               \
 		ft_tri_under_5.c      \
 		ft_3_4_5.c            \
+		ft_already_sort.c     \
 
 OBJ = ${FILES:.c=.o}
 

@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   ft_already_sort.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wmonacho <wmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/12 18:06:43 by wmonacho          #+#    #+#             */
-/*   Updated: 2022/03/01 13:28:48 by wmonacho         ###   ########lyon.fr   */
+/*   Created: 2022/03/01 15:53:00 by wmonacho          #+#    #+#             */
+/*   Updated: 2022/03/01 17:00:05 by wmonacho         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <stdlib.h>
+#include "ft_push_swap.h"
 
-void	ft_lstadd_back(t_list **alst, t_list *new)
+int	ft_already_sort(int	*index, int size)
 {
-	t_list	*temp;
+	int	i;
 
-	if (!*alst)
+	i = 0;
+	while (i < size - 1)
 	{
-		*alst = new;
-		return ;
+		if (index[i] > index[i + 1])
+			return (0);
+		i++;
 	}
-	temp = ft_lstlast(*alst);
-	temp->next = new;
+	return (1);
 }
