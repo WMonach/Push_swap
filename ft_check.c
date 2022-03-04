@@ -6,7 +6,7 @@
 /*   By: wmonacho <wmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/22 17:31:04 by wmonacho          #+#    #+#             */
-/*   Updated: 2022/03/04 15:44:36 by wmonacho         ###   ########lyon.fr   */
+/*   Updated: 2022/03/04 15:58:59 by wmonacho         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ static char	**ft_malloc_ws(char const	*str, char charset, char **tab, int j)
 	return (tab);
 }
 
-char	**ft_delete_ex(char **argv, int *size)
+char	**ft_remove_executable(char **argv, int *size)
 {
 	char	**tab;
 	int		i;
@@ -208,7 +208,7 @@ char	**ft_check(int *size, char **argv)
 	}
 	else
 	{
-		tab = ft_delete_executable(argv, size);
+		tab = ft_remove_executable(argv, size);
 		if (tab == NULL)
 			return (ft_error());
 	}
