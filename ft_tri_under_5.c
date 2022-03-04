@@ -6,7 +6,7 @@
 /*   By: wmonacho <wmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 10:48:29 by wmonacho          #+#    #+#             */
-/*   Updated: 2022/03/01 15:44:18 by wmonacho         ###   ########lyon.fr   */
+/*   Updated: 2022/03/03 13:50:33 by wmonacho         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,17 +51,18 @@ void	ft_tri_4(t_list **tab_a, t_list **tab_b)
 	nb1 = *(int *)((*tab_a)->next->next->content);
 	nb2 = *(int *)((*tab_a)->next->next->next->content);
 	ft_push_b(tab_a, tab_b);
-	ft_tri_3(&(*tab_a)->next);
-	ft_push_b(tab_a, tab_b);
+	ft_tri_3(&(*tab_a));
+	ft_push_a(tab_a, tab_b);
 	if (nb3 == 1)
 		ft_swap_a(tab_a);
-	if (nb3 == 2 || (nb3 == 3 && (nb2 == 4 || nb1 == 4 || nb0 == 4)))
+	if (nb3 == 2)
 	{
 		ft_reverserotate_a(tab_a);
 		ft_swap_a(tab_a);
 		ft_rotate_a(tab_a);
+		ft_rotate_a(tab_a);
 	}
-	if (nb3 >= 4)
+	if (nb3 >= 3)
 		ft_rotate_a(tab_a);
 }
 
@@ -72,13 +73,11 @@ void	ft_tri_5(t_list **tab_a, t_list **tab_b)
 
 	i = 0;
 	temp = *tab_a;
-	print_stack(tab_a);
 	while (temp && *(int *)(temp->content) != 0)
 	{
 		temp = temp->next;
 		i++;
 	}
-	printf("i=%d\n", i);
 	ft_push_me(tab_a, tab_b, i, 1);
 	temp = *tab_a;
 	i = 0;
@@ -87,26 +86,23 @@ void	ft_tri_5(t_list **tab_a, t_list **tab_b)
 		temp = temp->next;
 		i++;
 	}
-	print_stack(tab_a);
-	printf("i=%d\n", i);
 	ft_push_me(tab_a, tab_b, i, 2);
 	ft_tri_3(tab_a);
 	ft_push_a(tab_a, tab_b);
 	ft_push_a(tab_a, tab_b);
-	print_stack(tab_a);
 }
 
-int	ft_tri_under_5(t_list *tab_a, t_list *tab_b, int size)
+int	ft_tri_under_5(t_list **tab_a, t_list **tab_b, int size)
 {
 	if (size == 1)
 		return (0);
 	if (size == 2)
-		ft_tri_2(&tab_a);
+		ft_tri_2(tab_a);
 	if (size == 3)
-		ft_tri_3(&tab_a);
+		ft_tri_3(tab_a);
 	if (size == 4)
-		ft_tri_4(&tab_a, &tab_b);
+		ft_tri_4(tab_a, tab_b);
 	if (size == 5)
-		ft_tri_5(&tab_a, &tab_b);
+		ft_tri_5(tab_a, tab_b);
 	return (0);
 }

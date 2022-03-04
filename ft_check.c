@@ -6,7 +6,7 @@
 /*   By: wmonacho <wmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/22 17:31:04 by wmonacho          #+#    #+#             */
-/*   Updated: 2022/03/01 16:58:34 by wmonacho         ###   ########lyon.fr   */
+/*   Updated: 2022/03/04 15:44:36 by wmonacho         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,30 +123,30 @@ char	**ft_check_quote(char **argv, int *size)
 {
 	char	**tab;
 
-	*size = ft_nbr_words(argv[1], ' ') + 1;
+	*size = ft_nbr_words(argv[1], ' ');
 	if (*size == 2)
 		return (NULL);
 	tab = ft_split(argv[1], ' ');
 	return (tab);
 }
 
-int	ft_check_int(int argc, char *argv[])
+int	ft_check_int(int size, char **tab)
 {
 	int	i;
 	int	j;
 
 	i = 0;
-	while (i < argc)
+	while (i < size)
 	{
 		j = 0;
-		while (argv[i][j] != '\0')
+		while (tab[i][j] != '\0')
 		{
-			if (argv[i][j] == '-')
+			if (tab[i][j] == '-')
 				j++;
-			if (ft_isdigit(argv[i][j]) == 0)
+			if (ft_isdigit(tab[i][j]) == 0)
 				return (0);
 			j++;
-			if (argv[i][j] == '-')
+			if (tab[i][j] == '-')
 				return (0);
 		}
 		i++;
@@ -154,15 +154,15 @@ int	ft_check_int(int argc, char *argv[])
 	return (1);
 }
 
-int	ft_check_max_min(int argc, char *argv[])
+int	ft_check_max_min(int size, char **tab)
 {
 	int		i;
 	long	number;
 
 	i = 0;
-	while (i < argc)
+	while (i < size)
 	{
-		number = ft_atoi_long(argv[i]);
+		number = ft_atoi_long(tab[i]);
 		if (number < INT_MIN || number > INT_MAX)
 			return (0);
 		i++;
@@ -170,7 +170,7 @@ int	ft_check_max_min(int argc, char *argv[])
 	return (1);
 }
 
-int	ft_check_duplicate(int argc, char *argv[])
+int	ft_check_duplicate(int size, char **tab)
 {
 	int		i;
 	int		j;
@@ -178,13 +178,13 @@ int	ft_check_duplicate(int argc, char *argv[])
 	long	numberone;
 
 	i = 0;
-	while (i < argc)
+	while (i < size)
 	{
-		number = ft_atoi(argv[i]);
+		number = ft_atoi(tab[i]);
 		j = i + 1;
-		while (j < argc)
+		while (j < size)
 		{
-			numberone = ft_atoi(argv[j]);
+			numberone = ft_atoi(tab[j]);
 			if (numberone == number)
 				return (0);
 			j++;
@@ -198,18 +198,17 @@ char	**ft_check(int *size, char **argv)
 {
 	char	**tab;
 
-	tab = argv;
 	if (*size < 2)
 		return (ft_error());
 	if (*size == 2)
 	{
-		tab = ft_check_quote(tab, size);
+		tab = ft_check_quote(argv, size);
 		if (tab == NULL)
 			return (ft_error());
 	}
 	else
 	{
-		tab = ft_delete_ex(argv, size);
+		tab = ft_delete_executable(argv, size);
 		if (tab == NULL)
 			return (ft_error());
 	}
@@ -221,15 +220,3 @@ char	**ft_check(int *size, char **argv)
 		return (ft_error());
 	return (tab);
 }
-
-/*
-la faut que je fasse un check si arg = "1 2 3 4 5 6"
-if '"' while ( if num OK els KO and if ' ' OK els KO) tant que '"'
-arg = "1 2 3 4" 5 6 7
-algo de theo
-pour 5 a 100
-envoie en tranche de 12 dans b
-et de 12 q 24 dans b puis rb etc
-continuer jusqua ne plus rien avoir dans a
-ensuite retrier on prend 100 puis 99 etc
-*/

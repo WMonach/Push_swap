@@ -6,7 +6,7 @@
 /*   By: wmonacho <wmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 11:03:22 by wmonacho          #+#    #+#             */
-/*   Updated: 2022/03/01 16:46:57 by wmonacho         ###   ########lyon.fr   */
+/*   Updated: 2022/03/03 14:37:29 by wmonacho         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <stdio.h>
 # include "libft.h"
 
-void	print_stack(t_list **stack);
+void	print_stack(t_list *stack);
 void	print_tab(int *tab, int size);
 void	ft_push_me(t_list **tab_a, t_list **tab_b, int location, int mod);
 void	ft_tri_2(t_list **tab_a);
@@ -36,9 +36,10 @@ int		ft_swap_a(t_list **tab_a);
 int		ft_swap_b(t_list **tab_b);
 int		ft_reverserotate_a(t_list **tab_a);
 int		ft_reverserotate_b(t_list **tab_b);
-int		ft_tri_under_5(t_list *tab_a, t_list *tab_b, int size);
+int		ft_tri_under_5(t_list **tab_a, t_list **tab_b, int size);
 void	print_argv(char **tab, int size);
 long	ft_atoi_long(const char *str);
 int		ft_already_sort(int	*index, int size);
+void	ft_free_list(t_list **list_a);
 
 #endif
