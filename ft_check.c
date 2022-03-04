@@ -6,7 +6,7 @@
 /*   By: wmonacho <wmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/22 17:31:04 by wmonacho          #+#    #+#             */
-/*   Updated: 2022/03/04 15:58:59 by wmonacho         ###   ########lyon.fr   */
+/*   Updated: 2022/03/04 16:22:54 by wmonacho         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,20 +76,27 @@ static char	**ft_malloc_ws(char const	*str, char charset, char **tab, int j)
 char	**ft_remove_executable(char **argv, int *size)
 {
 	char	**tab;
-	int		i;
 	int		j;
+	int		k;
+	int		i;
 
-	i = 1;
 	j = 0;
+	i = 1;
 	tab = (char **)malloc(sizeof(char *) * (*size));
 	while (i < *size)
 	{
 		tab = ft_malloc_ws(argv[i], ' ', tab, j);
 		if (tab == NULL)
 			return (NULL);
-		tab[j] = argv[i];
-		i++;
+		k = 0;
+		while (argv[i][k] != '\0')
+		{
+			tab[j][k] = argv[i][k];
+			k++;
+		}
+		tab[j][k] = '\0';
 		j++;
+		i++;
 	}
 	tab[j] = NULL;
 	*size = j;

@@ -6,13 +6,13 @@
 /*   By: wmonacho <wmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 12:05:08 by wmonacho          #+#    #+#             */
-/*   Updated: 2022/03/04 15:40:01 by wmonacho         ###   ########lyon.fr   */
+/*   Updated: 2022/03/04 17:03:18 by wmonacho         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
 
-static void	ft_free_tab(char **tab)
+void	ft_free_tab(char **tab)
 {
 	int	i;
 
@@ -22,12 +22,6 @@ static void	ft_free_tab(char **tab)
 		free((tab)[i]);
 		i++;
 	}
-	free(tab);
-}
-
-static void	ft_free_all(t_list **list_a, int *tab)
-{
-	ft_free_list(list_a);
 	free(tab);
 }
 
@@ -52,6 +46,7 @@ int	main(int argc, char **argv)
 	}
 	if (ft_already_sort(tmp, size) == 1 || tmp == NULL)
 	{
+		ft_free_tab(tab);
 		free(tmp);
 		return (-1);
 	}
@@ -59,17 +54,22 @@ int	main(int argc, char **argv)
 	tab_b = ft_list_b();
 	if (tab_a == NULL)
 	{
+		ft_free_tab(tab);
 		free(tmp);
 		return (-1);
 	}
-	if (argc < 6)
+	if (size < 6)
 	{
 		ft_tri_under_5(&tab_a, &tab_b, size);
-		ft_free_all(&tab_a, tmp);
+		ft_free_tab(tab);
+		free(tmp);
+		ft_free_list(&tab_a);
 		return (0);
 	}
 	ft_setradix(tab_a, tab_b, size);
-	ft_free_all(&tab_a, tmp);
+	ft_free_tab(tab);
+	free(tmp);
+	ft_free_list(&tab_a);
 	return (0);
 }
 /*
