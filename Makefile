@@ -1,6 +1,8 @@
 NAME =		push_swap
 
-CFLAGS =	-Wall -Werror -Wextra -g3 -fsanitize=address
+SFLAG  =	-g3 -fsanitize=address
+
+CFLAGS =	-Wall -Werror -Wextra
 
 CC =		gcc
 
@@ -19,6 +21,8 @@ FILES =	ft_check.c            \
 		ft_swap.c             \
 		debug.c               \
 		ft_tri_under_5.c      \
+		ft_3_4_5.c            \
+		ft_already_sort.c     \
 
 OBJ = ${FILES:.c=.o}
 
@@ -30,7 +34,7 @@ libs :
 ${NAME} : 	${OBJ} ${LIBSDIR}libft.a
 				${CC} ${CFLAGS} -Llibft/ ${OBJ} -o push_swap -lft
 
-%.o:			%.c
+%.o:			%.c ft_push_swap.h ${LIBSDIR}libft.h
 				${CC} ${CFLAGS} -Ilibft/ -c $<
 
 clean :

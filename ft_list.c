@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_list.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wmonacho <wmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: will <will@student.42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 15:31:53 by wmonacho          #+#    #+#             */
-/*   Updated: 2022/02/01 13:31:38 by wmonacho         ###   ########lyon.fr   */
+/*   Updated: 2022/03/08 14:04:53 by will             ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 t_list	*ft_list_a(int numbers_len, int *tab)
 {
 	int		i;
-	t_list	*tab_a = NULL;
+	t_list	*tab_a;
 
 	i = 0;
-	print_tab(tab, numbers_len);
+	tab_a = NULL;
 	while (i < numbers_len)
 	{
-		ft_lstadd_back(&tab_a, ft_lstnew((void*)&tab[i]));
+		ft_lstadd_back(&tab_a, ft_lstnew((void *)&tab[i]));
 		if (!tab_a)
 			return (NULL);
 		i++;
@@ -35,6 +35,26 @@ t_list	*ft_list_b(void)
 
 	tab_b = NULL;
 	return (tab_b);
+}
+
+void	ft_free_list(t_list **list_a)
+{
+	t_list	*tempi;
+	t_list	*temple;
+
+	if (!(*list_a))
+		return ;
+	tempi = *list_a;
+	temple = *list_a;
+	while (tempi)
+	{
+		printf("ha\n");
+		temple = temple->next;
+		free(tempi);
+		tempi = temple;
+		printf("ha\n");
+	}
+	*list_a = NULL;
 }
 
 /*pour realiser ma liste il faudrait que je fasse une boucle qui cree
