@@ -6,28 +6,11 @@
 /*   By: will <will@student.42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/29 11:15:09 by wmonacho          #+#    #+#             */
-/*   Updated: 2022/03/05 14:27:15 by will             ###   ########lyon.fr   */
+/*   Updated: 2022/03/08 18:42:38 by will             ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
-
-// int	ft_swap_a(t_list **tab_a)
-// {
-// 	t_list	*tmp;
-// 	t_list	*tempi;
-
-// 	tmp = *tab_a;
-// 	tmp = tmp->next;
-// 	tempi = ft_lstnew(tmp->content);
-// 	if (!tempi)
-// 		return (-1);
-// 	ft_lstadd_front(tab_a, tempi);
-// 	write(1, "sa\n", 3);
-// 	(*tab_a)->next->next = tmp->next;
-// 	free(tmp);
-// 	return (0);
-// }
 
 int	ft_swap_a(t_list **tab_a)
 {

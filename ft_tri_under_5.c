@@ -6,7 +6,7 @@
 /*   By: will <will@student.42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 10:48:29 by wmonacho          #+#    #+#             */
-/*   Updated: 2022/03/05 01:05:05 by will             ###   ########lyon.fr   */
+/*   Updated: 2022/03/08 20:15:31 by will             ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,9 +81,7 @@ void	ft_tri_5(t_list **tab_a, t_list **tab_b)
 		i++;
 	}
 	ft_push_me(tab_a, tab_b, i, 2);
-	printf("hoooooooo\n");
 	ft_tri_3(tab_a);
-	printf("ha\n");
 	ft_push_a(tab_a, tab_b);
 	ft_push_a(tab_a, tab_b);
 }

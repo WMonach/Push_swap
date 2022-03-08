@@ -6,7 +6,7 @@
 /*   By: will <will@student.42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 15:31:53 by wmonacho          #+#    #+#             */
-/*   Updated: 2022/03/08 14:04:53 by will             ###   ########lyon.fr   */
+/*   Updated: 2022/03/08 20:16:01 by will             ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,11 +48,9 @@ void	ft_free_list(t_list **list_a)
 	temple = *list_a;
 	while (tempi)
 	{
-		printf("ha\n");
 		temple = temple->next;
 		free(tempi);
 		tempi = temple;
-		printf("ha\n");
 	}
 	*list_a = NULL;
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_rotate.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wmonacho <wmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: will <will@student.42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/29 11:14:35 by wmonacho          #+#    #+#             */
-/*   Updated: 2022/03/04 17:20:00 by wmonacho         ###   ########lyon.fr   */
+/*   Updated: 2022/03/08 20:14:59 by will             ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,32 +14,32 @@
 
 int	ft_rotate_a(t_list **tab_a)
 {
-	void	*tmp;
-	t_list	*newlist;
+	t_list	*savelist;
+	t_list	*tmp;
 
-	tmp = (*tab_a)->content;
-	*tab_a = (*tab_a)->next;
-	newlist = ft_lstnew(tmp);
-	if (newlist == NULL)
-		return (-1);
-	ft_lstadd_back(tab_a, newlist);
+	savelist = (*tab_a)->next;
+	tmp = *tab_a;
+	while (tmp->next && tmp->next->content != NULL)
+		tmp = tmp->next;
+	tmp->next = *tab_a;
+	(*tab_a)->next = NULL;
+	*tab_a = savelist;
 	write(1, "ra\n", 3);
-	free(newlist);
 	return (0);
 }
 
 int	ft_rotate_b(t_list **tab_b)
 {
-	void	*tmp;
-	t_list	*newlist;
+	t_list	*savelist;
+	t_list	*tmp;
 
-	tmp = (*tab_b)->content;
-	*tab_b = (*tab_b)->next;
-	newlist = ft_lstnew(tmp);
-	if (newlist == NULL)
-		return (-1);
-	ft_lstadd_back(tab_b, newlist);
+	savelist = (*tab_b)->next;
+	tmp = *tab_b;
+	while (tmp->next && tmp->next->content != NULL)
+		tmp = tmp->next;
+	tmp->next = *tab_b;
+	(*tab_b)->next = NULL;
+	*tab_b = savelist;
 	write(1, "rb\n", 3);
-	free(newlist);
 	return (0);
 }
