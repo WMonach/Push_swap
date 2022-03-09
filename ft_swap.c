@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: will <will@student.42lyon.fr>              +#+  +:+       +#+        */
+/*   By: wmonacho <wmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/29 11:15:09 by wmonacho          #+#    #+#             */
-/*   Updated: 2022/03/08 18:42:38 by will             ###   ########lyon.fr   */
+/*   Updated: 2022/03/09 16:27:57 by wmonacho         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_swap_a(t_list **tab_a)
 	tmp = (*tab_a)->content;
 	(*tab_a)->content = (*tab_a)->next->content;
 	(*tab_a)->next->content = tmp;
-	write(1, "sa\n", 4);
+	write(1, "sa\n", 3);
 	return (0);
 }
 

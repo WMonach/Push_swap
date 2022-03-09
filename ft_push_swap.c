@@ -6,7 +6,7 @@
 /*   By: wmonacho <wmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 12:05:08 by wmonacho          #+#    #+#             */
-/*   Updated: 2022/03/04 17:03:18 by wmonacho         ###   ########lyon.fr   */
+/*   Updated: 2022/03/09 15:37:13 by wmonacho         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	main(int argc, char **argv)
 	if (tab == NULL)
 		return (-1);
 	tmp = ft_index(size, tab);
-	if (argc == 2)
+	if (size == 2)
 	{
 		ft_free_tab(tab);
 		free(tmp);
@@ -63,13 +63,13 @@ int	main(int argc, char **argv)
 		ft_tri_under_5(&tab_a, &tab_b, size);
 		ft_free_tab(tab);
 		free(tmp);
-		ft_free_list(&tab_a);
+		ft_free_list(tab_a);
 		return (0);
 	}
 	ft_setradix(tab_a, tab_b, size);
 	ft_free_tab(tab);
 	free(tmp);
-	ft_free_list(&tab_a);
+	ft_free_list(tab_a);
 	return (0);
 }
 /*

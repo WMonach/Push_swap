@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_reverse_rotate.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: will <will@student.42lyon.fr>              +#+  +:+       +#+        */
+/*   By: wmonacho <wmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 11:32:09 by wmonacho          #+#    #+#             */
-/*   Updated: 2022/03/08 19:13:38 by will             ###   ########lyon.fr   */
+/*   Updated: 2022/03/09 12:06:37 by wmonacho         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,9 @@ int	ft_reverserotate_a(t_list **tab_a)
 {
 	t_list	*tmp;
 
-	
 	tmp = *tab_a;
 	while (tmp->next->next && tmp->next->next->content != NULL)
-	{ 
+	{
 		tmp = tmp->next;
 	}
 	tmp->next->next = *tab_a;
@@ -35,7 +34,7 @@ int	ft_reverserotate_b(t_list **tab_b)
 
 	tmp = *tab_b;
 	while (tmp->next->next && tmp->next->next->content != NULL)
-	{ 
+	{
 		tmp = tmp->next;
 	}
 	tmp->next->next = *tab_b;

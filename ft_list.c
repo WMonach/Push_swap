@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_list.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: will <will@student.42lyon.fr>              +#+  +:+       +#+        */
+/*   By: wmonacho <wmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 15:31:53 by wmonacho          #+#    #+#             */
-/*   Updated: 2022/03/08 20:16:01 by will             ###   ########lyon.fr   */
+/*   Updated: 2022/03/09 16:34:22 by wmonacho         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,22 +37,23 @@ t_list	*ft_list_b(void)
 	return (tab_b);
 }
 
-void	ft_free_list(t_list **list_a)
+void	ft_free_list(t_list *list_a)
 {
 	t_list	*tempi;
 	t_list	*temple;
 
-	if (!(*list_a))
+	if (!(list_a))
 		return ;
-	tempi = *list_a;
-	temple = *list_a;
+	tempi = list_a;
+	temple = list_a;
 	while (tempi)
 	{
 		temple = temple->next;
 		free(tempi);
 		tempi = temple;
 	}
-	*list_a = NULL;
+	free(tempi);
+	list_a = NULL;
 }
 
 /*pour realiser ma liste il faudrait que je fasse une boucle qui cree

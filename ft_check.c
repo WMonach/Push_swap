@@ -6,16 +6,17 @@
 /*   By: wmonacho <wmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/22 17:31:04 by wmonacho          #+#    #+#             */
-/*   Updated: 2022/03/04 16:22:54 by wmonacho         ###   ########lyon.fr   */
+/*   Updated: 2022/03/09 16:18:47 by wmonacho         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "ft_push_swap.h"
 
-char	**ft_error(void)
+char	**ft_error(char **tab)
 {
 	ft_putstr_fd("Error\n", 1);
+	ft_free_tab(tab);
 	return (NULL);
 }
 
@@ -206,24 +207,24 @@ char	**ft_check(int *size, char **argv)
 	char	**tab;
 
 	if (*size < 2)
-		return (ft_error());
+		return (NULL);
 	if (*size == 2)
 	{
 		tab = ft_check_quote(argv, size);
 		if (tab == NULL)
-			return (ft_error());
+			return (ft_error(tab));
 	}
 	else
 	{
 		tab = ft_remove_executable(argv, size);
 		if (tab == NULL)
-			return (ft_error());
+			return (ft_error(tab));
 	}
 	if (ft_check_int(*size, tab) == 0)
-		return (ft_error());
+		return (ft_error(tab));
 	if (ft_check_max_min(*size, tab) == 0)
-		return (ft_error());
+		return (ft_error(tab));
 	if (ft_check_duplicate(*size, tab) == 0)
-		return (ft_error());
+		return (ft_error(tab));
 	return (tab);
 }
