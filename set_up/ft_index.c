@@ -6,11 +6,11 @@
 /*   By: wmonacho <wmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 12:29:16 by wmonacho          #+#    #+#             */
-/*   Updated: 2022/03/04 16:10:25 by wmonacho         ###   ########lyon.fr   */
+/*   Updated: 2022/03/11 10:56:28 by wmonacho         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_push_swap.h"
+#include "../ft_push_swap.h"
 
 static int	*ft_free(int *str)
 {

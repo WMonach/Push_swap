@@ -6,11 +6,11 @@
 /*   By: wmonacho <wmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/30 12:35:37 by wmonacho          #+#    #+#             */
-/*   Updated: 2022/03/03 09:48:18 by wmonacho         ###   ########lyon.fr   */
+/*   Updated: 2022/03/11 11:57:50 by wmonacho         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_push_swap.h"
+#include "../ft_push_swap.h"
 
 /*
 il faut que je fasse un compteur dans triradix

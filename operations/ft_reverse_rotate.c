@@ -6,11 +6,11 @@
 /*   By: wmonacho <wmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 11:32:09 by wmonacho          #+#    #+#             */
-/*   Updated: 2022/03/09 12:06:37 by wmonacho         ###   ########lyon.fr   */
+/*   Updated: 2022/03/11 13:09:56 by wmonacho         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_push_swap.h"
+#include "../ft_push_swap.h"
 
 int	ft_reverserotate_a(t_list **tab_a)
 {

@@ -2,29 +2,31 @@ NAME =		push_swap
 
 SFLAG  =	-g3 -fsanitize=address
 
-CFLAGS =	-Wall -Werror -Wextra
+CFLAGS =	-Wall -Werror -Wextra -I .
 
 CC =		gcc
 
-MAKE =		make
-
 LIBSDIR =	libft/
 
-FILES =	ft_check.c            \
-		ft_index.c            \
-		ft_list.c             \
-		ft_push_swap.c        \
-		ft_push.c             \
-		ft_radix.c            \
-		ft_reverse_rotate.c   \
-		ft_rotate.c           \
-		ft_swap.c             \
-		debug.c               \
-		ft_tri_under_5.c      \
-		ft_3_4_5.c            \
-		ft_already_sort.c     \
+OBJS_DIR = .objs
 
-OBJ = ${FILES:.c=.o}
+FILES =	check/ft_check.c				\
+		check/ft_parse.c				\
+		free/ft_free.c					\
+		operations/ft_push.c			\
+		operations/ft_reverse_rotate.c	\
+		operations/ft_rotate.c			\
+		operations/ft_swap.c			\
+		set_up/ft_index.c				\
+		set_up/ft_list.c				\
+		tri/ft_3_4_5.c					\
+		tri/ft_already_sort.c			\
+		tri/ft_radix.c					\
+		tri/ft_tri_under_5.c			\
+		debug.c							\
+		ft_push_swap.c
+
+OBJ = $(addprefix $(OBJS_DIR)/, $(FILES:.c=.o))
 
 all :	libs ${NAME}
 
@@ -34,8 +36,9 @@ libs :
 ${NAME} : 	${OBJ} ${LIBSDIR}libft.a
 				${CC} ${CFLAGS} -Llibft/ ${OBJ} -o push_swap -lft
 
-%.o:			%.c ft_push_swap.h ${LIBSDIR}libft.h
-				${CC} ${CFLAGS} -Ilibft/ -c $<
+$(OBJS_DIR)/%.o:	%.c ft_push_swap.h ${LIBSDIR}libft.h ${LIBSDIR}libft.a Makefile
+				mkdir -p $(dir $@)
+				${CC} ${CFLAGS} -Ilibft/ -c $< -o $@
 
 clean :
 				${MAKE} clean -C ${LIBSDIR}

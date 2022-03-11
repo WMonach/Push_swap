@@ -6,16 +6,15 @@
 /*   By: wmonacho <wmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/29 11:10:20 by wmonacho          #+#    #+#             */
-/*   Updated: 2022/03/09 15:34:40 by wmonacho         ###   ########lyon.fr   */
+/*   Updated: 2022/03/11 11:57:37 by wmonacho         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_push_swap.h"
+#include "../ft_push_swap.h"
 
 int	ft_push_b(t_list **tab_a, t_list **tab_b)
 {
 	void	*tmp;
-
 
 	tmp = (*tab_a)->next;
 	(*tab_a)->next = *tab_b;

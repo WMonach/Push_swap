@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_tri_under_5.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: will <will@student.42lyon.fr>              +#+  +:+       +#+        */
+/*   By: wmonacho <wmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 10:48:29 by wmonacho          #+#    #+#             */
-/*   Updated: 2022/03/08 20:15:31 by will             ###   ########lyon.fr   */
+/*   Updated: 2022/03/11 13:10:55 by wmonacho         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_push_swap.h"
+#include "../ft_push_swap.h"
 
-void	ft_tri_3(t_list **tab_a)
+static void	ft_tri_3(t_list **tab_a)
 {
 	int	nb0;
 	int	nb1;
@@ -39,7 +39,7 @@ void	ft_tri_3(t_list **tab_a)
 	}
 }
 
-void	ft_tri_4(t_list **tab_a, t_list **tab_b)
+static void	ft_tri_4(t_list **tab_a, t_list **tab_b)
 {
 	int	nb3;
 
@@ -60,7 +60,7 @@ void	ft_tri_4(t_list **tab_a, t_list **tab_b)
 		ft_rotate_a(tab_a);
 }
 
-void	ft_tri_5(t_list **tab_a, t_list **tab_b)
+static void	ft_tri_5(t_list **tab_a, t_list **tab_b)
 {
 	int		i;
 	t_list	*temp;
