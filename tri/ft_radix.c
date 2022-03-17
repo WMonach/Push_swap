@@ -6,7 +6,7 @@
 /*   By: wmonacho <wmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/30 12:35:37 by wmonacho          #+#    #+#             */
-/*   Updated: 2022/03/11 19:05:03 by wmonacho         ###   ########lyon.fr   */
+/*   Updated: 2022/03/17 13:36:39 by wmonacho         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static int	ft_triradix(t_list **tab_a, t_list *tab_b, int j, int size)
 	return (0);
 }
 
-int	ft_setradix(t_list *tab_a, t_list *tab_b, int size)
+int	ft_setradix(t_list **tab_a, t_list *tab_b, int size)
 {
 	int		i;
 	int		j;
@@ -52,7 +52,7 @@ int	ft_setradix(t_list *tab_a, t_list *tab_b, int size)
 	j = i;
 	while (i > 0)
 	{
-		ft_triradix(&tab_a, tab_b, j - i, size);
+		ft_triradix(tab_a, tab_b, j - i, size);
 		i--;
 	}
 	return (0);

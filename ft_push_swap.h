@@ -6,7 +6,7 @@
 /*   By: wmonacho <wmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 11:03:22 by wmonacho          #+#    #+#             */
-/*   Updated: 2022/03/11 19:01:49 by wmonacho         ###   ########lyon.fr   */
+/*   Updated: 2022/03/17 13:36:50 by wmonacho         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	print_argv(char **tab, int size);
 void	ft_push_me(t_list **tab_a, t_list **tab_b, int location, int mod);
 void	ft_tri_2(t_list **tab_a);
 int		ft_tri_under_5(t_list **tab_a, t_list **tab_b, int size);
-int		ft_setradix(t_list *tab_a, t_list *tab_b, int argc);
+int		ft_setradix(t_list **tab_a, t_list *tab_b, int argc);
 int		ft_already_sort(int	*index, int size);
 
 /*check*/
