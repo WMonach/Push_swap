@@ -1,6 +1,6 @@
 NAME =		push_swap
 
-SFLAG  =	-g3 -fsanitize=address
+SFLAG  =	-fsanitize=address -g3
 
 CFLAGS =	-Wall -Werror -Wextra -I .
 
@@ -34,7 +34,7 @@ libs :
 		${MAKE} -C ${LIBSDIR}
 
 ${NAME} : 	${OBJ} ${LIBSDIR}libft.a
-				${CC} ${CFLAGS} -Llibft/ ${OBJ} -o push_swap -lft
+				${CC} ${CFLAGS} $(SFLAG) -Llibft/ ${OBJ} -o push_swap -lft
 
 $(OBJS_DIR)/%.o:	%.c ft_push_swap.h ${LIBSDIR}libft.h ${LIBSDIR}libft.a Makefile
 				mkdir -p $(dir $@)

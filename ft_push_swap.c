@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_push_swap.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wmonacho <wmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: will <will@student.42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 12:05:08 by wmonacho          #+#    #+#             */
-/*   Updated: 2022/03/17 14:02:18 by wmonacho         ###   ########lyon.fr   */
+/*   Updated: 2022/03/25 16:54:37 by will             ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 int	*ft_check_index(int *size, char **argv, int *tmp, char ***tab)
 {
 	*tab = ft_check(size, argv);
-	if (tab == NULL)
+	if (*tab == NULL)
 		return (NULL);
 	tmp = ft_index(*size, *tab);
-	if (*size == 2)
+	if (*size == 1)
 	{
 		ft_free_shorcut(*tab, tmp);
 		return (NULL);
@@ -100,7 +100,7 @@ int	main(int argc, char **argv)
 // 		ft_free_list(tab_a);
 // 		return (0);
 // 	}
-// 	ft_setradix(tab_a, tab_b, size);
+// 	ft_setradix(&tab_a, tab_b, size);
 // 	ft_free_tab(tab);
 // 	free(tmp);
 // 	ft_free_list(tab_a);
