@@ -42,11 +42,11 @@ $(OBJS_DIR)/%.o:	%.c ft_push_swap.h ${LIBSDIR}libft.h ${LIBSDIR}libft.a Makefile
 
 clean :
 				${MAKE} clean -C ${LIBSDIR}
-				rm -f ${OBJ} ${OBJ_B} 
+				rm -f ${OBJ} ${OBJ_B} $(OBJS_DIR)/*.o
 
 fclean :
 				${MAKE} fclean -C ${LIBSDIR}
-				rm -f ${OBJ} ${OBJ_B} 
+				rm -f ${OBJ} ${OBJ_B} $(OBJS_DIR)/*.o
 				rm -f ${NAME}
 
 re :			fclean all
