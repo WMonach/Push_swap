@@ -6,7 +6,7 @@
 /*   By: wmonacho <wmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 12:05:08 by wmonacho          #+#    #+#             */
-/*   Updated: 2022/03/30 09:48:51 by wmonacho         ###   ########lyon.fr   */
+/*   Updated: 2022/03/30 10:35:46 by wmonacho         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,11 @@
 int	*ft_check_index(int *size, char **argv, int *tmp, char **tab)
 {
 	tab = NULL;
-	if (*size < 2)
-		return (NULL);
 	tab = ft_check(size, argv);
-	if (tab == NULL)
+	if (*tab == NULL)
 		return (NULL);
 	tmp = ft_index(*size, tab);
-	if (*size == 2)
+	if (*size == 1)
 	{
 		ft_free_shorcut(tab, tmp);
 		return (NULL);
@@ -42,6 +40,7 @@ int	main(int argc, char **argv)
 	char		**tab;
 	int			size;
 
+	tab = NULL;
 	size = argc;
 	tmp = NULL;
 	tmp = ft_check_index(&size, argv, tmp, tab);
@@ -103,7 +102,7 @@ int	main(int argc, char **argv)
 // 		ft_free_list(tab_a);
 // 		return (0);
 // 	}
-// 	ft_setradix(tab_a, tab_b, size);
+// 	ft_setradix(&tab_a, tab_b, size);
 // 	ft_free_tab(tab);
 // 	free(tmp);
 // 	ft_free_list(tab_a);
