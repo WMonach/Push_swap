@@ -23,7 +23,6 @@ FILES =	check/ft_check.c				\
 		tri/ft_already_sort.c			\
 		tri/ft_radix.c					\
 		tri/ft_tri_under_5.c			\
-		debug.c							\
 		ft_push_swap.c
 
 OBJ = $(addprefix $(OBJS_DIR)/, $(FILES:.c=.o))
@@ -48,6 +47,7 @@ fclean :
 				${MAKE} fclean -C ${LIBSDIR}
 				rm -f ${OBJ} ${OBJ_B} $(OBJS_DIR)/*.o
 				rm -f ${NAME}
+				rm -rf $(OBJS_DIR)
 
 re :			fclean all
 

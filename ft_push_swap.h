@@ -6,7 +6,7 @@
 /*   By: wmonacho <wmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 11:03:22 by wmonacho          #+#    #+#             */
-/*   Updated: 2022/03/17 13:36:50 by wmonacho         ###   ########lyon.fr   */
+/*   Updated: 2022/03/30 13:42:57 by wmonacho         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,7 @@
 # include <stdlib.h>
 # include <limits.h>
 # include <unistd.h>
-# include <stdio.h>
 # include "libft.h"
-
-/*debug*/
-
-void	print_stack(t_list *stack);
-void	print_tab(int *tab, int size);
-void	print_argv(char **tab, int size);
 
 /*tri*/
 
